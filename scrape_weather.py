@@ -8,3 +8,7 @@ Winnipeg Weather Data (min, max, and mean temperatures) from the Enviornment Can
 
 """
 
+from html.parser import HTMLParser
+
+class WeatherScraper():
+  def __init__(self):
