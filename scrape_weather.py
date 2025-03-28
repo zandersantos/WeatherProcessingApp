@@ -11,8 +11,12 @@ Winnipeg Weather Data (min, max, and mean temperatures) from the Enviornment Can
 from html.parser import HTMLParser
 
 class WeatherScraper(HTMLParser):
-  def __init__(self, *, convert_charrefs = True):
-    super().__init__(convert_charrefs=convert_charrefs)
+  def __init__(self, start_year, start_month):
+    climate_weather_url = "http://climate.weather.gc.ca/climate_data/daily_data_e.html?StationID=27174&timeframe=2&StartYear=1840&EndYear=2018&Day=1&Year=2018&Month=5"
+    climate_weather_error_url = "https://climate.weather.gc.ca/historical_data/search_historic_data_e.html"
+    year = start_year
+    month = start_month
+    climate_weather_data = {}
 
   def handle_starttag(self, tag, attrs):
     return super().handle_starttag(tag, attrs)
