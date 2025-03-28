@@ -10,5 +10,17 @@ Winnipeg Weather Data (min, max, and mean temperatures) from the Enviornment Can
 
 from html.parser import HTMLParser
 
-class WeatherScraper():
-  def __init__(self):
+class WeatherScraper(HTMLParser):
+  def __init__(self, *, convert_charrefs = True):
+    super().__init__(convert_charrefs=convert_charrefs)
+
+  def handle_starttag(self, tag, attrs):
+    return super().handle_starttag(tag, attrs)
+
+  def handle_endtag(self, tag):
+    return super().handle_endtag(tag)
+
+  def handle_data(self, data):
+    return super().handle_data(data)
+
+  def scrape_data(self)
